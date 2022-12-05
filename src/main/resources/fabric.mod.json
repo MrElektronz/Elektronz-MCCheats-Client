@@ -19,11 +19,12 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.fabricmc.example.ElektronzMod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "modid.mixins.json",
+    "elektronz.invokers.mixins.json"
   ],
 
   "depends": {

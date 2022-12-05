@@ -6,7 +6,13 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "ExampleMixin",
+    "ClientConnectionMixin",
+    "FishingBobberEntityMixin",
+    "PlayerTickMixin",
+    "GameMenuScreenMixin",
+    "DeathScreenMixin",
+    "MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
