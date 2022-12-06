@@ -12,7 +12,10 @@
     "PlayerTickMixin",
     "GameMenuScreenMixin",
     "DeathScreenMixin",
-    "MinecraftClientMixin"
+    "MinecraftClientMixin",
+    "PlayerMovePacketMixin",
+    "EndScreenMixin",
+    "invoker.WorldBorderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

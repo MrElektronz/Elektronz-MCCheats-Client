@@ -8,9 +8,9 @@ import java.util.ArrayList;
  */
 public interface DeathListener extends Listener{
 
-    public void onDeath();
+    void onDeath();
 
-    public static class DeathEvent extends Event<DeathListener> {
+    class DeathEvent extends Event<DeathListener> {
 
         public static final DeathEvent INSTANCE = new DeathEvent();
 

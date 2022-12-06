@@ -4,8 +4,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.example.listeners.EventManager;
 import net.fabricmc.example.modules.*;
 import net.fabricmc.example.modules.Module;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.network.packet.s2c.play.PlayerRespawnS2CPacket;
+import net.minecraft.client.network.ClientPlayerInteractionManager;
+import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,9 +21,10 @@ public class ElektronzMod implements ModInitializer {
 	private HashMap<ModuleName, Module> modules;
 	public static final EventManager EVENTS = new EventManager();
 	private boolean enabled = true;
-
+	public static BotMovementModule BOT_MOVEMENT;
 	// includes all previously enabled modules if client is DISABLED
 	private ArrayList<ModuleName> storedEnabledModules = new ArrayList<>();
+
 
 
 	@Override
@@ -32,9 +33,11 @@ public class ElektronzMod implements ModInitializer {
 		modules = new HashMap<>();
 		modules.put(ModuleName.AUTO_FISH, new AutoFishModule(true));
 		modules.put(ModuleName.FLIGHT, new FlightModule(false));
-		modules.put(ModuleName.REACH, new ReachModule(true));
+		modules.put(ModuleName.REACH, new ReachModule(false));
 		modules.put(ModuleName.ENTITY_AURA, new EntityAuraModule(false));
-
+		modules.put(ModuleName.BOT_MOVEMENT, new BotMovementModule(true));
+		modules.put(ModuleName.TELEPORT, new TeleportModule(false));
+		BOT_MOVEMENT = (BotMovementModule) modules.get(ModuleName.BOT_MOVEMENT);
 
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.

@@ -5,5 +5,5 @@ package net.fabricmc.example;
  */
 public enum ModuleName {
 
-    AUTO_FISH, FLIGHT, REACH, ENTITY_AURA;
+    AUTO_FISH, FLIGHT, REACH, ENTITY_AURA, BOT_MOVEMENT, TELEPORT;
 }

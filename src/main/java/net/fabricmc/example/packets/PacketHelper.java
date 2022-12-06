@@ -20,6 +20,15 @@ public class PacketHelper {
         ((ClientConnectionInvoker)con).callSendImmediately(packet, null);
     }
 
+    public static void sendPositionSlowly(Vec3d pos, boolean ground){
+        MinecraftClient client = MinecraftClient.getInstance();
+        ClientConnection con = client.player.networkHandler.getConnection();
+        pos = PacketHelper.fixCoords(pos);
+        Packet packet = new PlayerMoveC2SPacket.PositionAndOnGround(pos.getX(), pos.getY(), pos.getZ(), false);
+        ((ClientConnectionInvoker)con).callSendImmediately(packet, null);
+        con.send(packet, null);
+    }
+
     public static void sendPacketImmediately(Packet<?> packet){
         MinecraftClient client = MinecraftClient.getInstance();
         ClientConnection con = client.player.networkHandler.getConnection();
